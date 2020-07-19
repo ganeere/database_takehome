@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<table>
+    <thead>
+        <tr>
+            <th>Food Groups</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for group in groups %}
+        <tr>
+            <td>
+                <a href="{{ url_for('food', group_id=group[0]) }}">{{group[1]}}</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+
+
+
+
+</html>
