@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<table>
+    <thead>
+        <tr>
+            <th>Short Description</th>
+            <th>Nitrogen</th>
+            <th>Protein</th>
+            <th>Fat</th>
+            <th>Calorine</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for food in foods %}
+        <tr>
+            <td>{{food[3]}}</td>
+            <td>{{food[10]}}</td>
+            <td>{{food[11]}}</td> 
+            <td>{{food[12]}}</td>
+            <td>{{food[13]}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+
+
+
+
+</html>
