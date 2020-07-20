@@ -4,6 +4,7 @@
     <thead>
         <tr>
             <th>Short Description</th>
+            <th>-------</th>
             <th>Nitrogen</th>
             <th>Protein</th>
             <th>Fat</th>
@@ -13,9 +14,14 @@
     <tbody>
         {% for food in foods %}
         <tr>
-            <td>{{food[3]}}</td>
+            <td>
+                <a href="{{ url_for('viewfoods', food_id=food[0]) }}">{{food[3]}}</a>
+            </td>
+            <td>
+                <a href="{{ url_for('updatefood', food_id=food[0], group_id=food[1]) }}">Update</a>
+            </td>
             <td>{{food[10]}}</td>
-            <td>{{food[11]}}</td> 
+            <td>{{food[11]}}</td>
             <td>{{food[12]}}</td>
             <td>{{food[13]}}</td>
         </tr>
