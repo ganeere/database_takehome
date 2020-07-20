@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<body>
+        
+    <div>
+        <form method="POST" action="">
+            {{ form.csrf_token }}
+            <div class="form-group">
+                {{ form.long_desc.label(class="form-control-label") }}
+                {% if form.long_desc.errors %}
+                {{ form.long_desc(class="form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.long_desc.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.long_desc(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.short_desc.label(class="form-control-label") }}
+                {% if form.short_desc.errors %}
+                {{ form.short_desc(class="form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.short_desc.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.short_desc(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.manufac.label(class="form-control-label") }}
+                {% if form.manufac.errors %}
+                {{ form.manufac(class="form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.manufac.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.manufac(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.scien.label(class="form-control-label") }}
+                {% if form.scien.errors %}
+                {{ form.scien(class="form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.scien.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.scien(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <a href="{{ url_for('foodgroups') }}"> 
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-outline-info") }}
+                </div>
+            </a>
+        </form>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Food Groups</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for group in groups %}
+            <tr>
+                <td>
+                    <a href="{{url_for('updatefood',food_id=foods[0][0],group_id=group[0] )}}">{{group[1]}}</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>
