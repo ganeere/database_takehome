@@ -44,8 +44,13 @@ def viewfoods(food_id):
 
     db = sqlite3.connect('usda_foods.db')
     d = db.cursor()
-    d.execute('''SELECT * FROM food LEFT JOIN food_group ON  
-    food.food_group_id=food_group.id;''')
+    d.execute('''SELECT * FROM food JOIN food_group ON  
+    food.food_group_id=food_group.id
+    JOIN weight ON food.id=weight.food_id
+    JOIN nutrition ON food.id=nutrition.food_id;''')
+
+   
+    
 
     group_name = d.fetchall()
 
